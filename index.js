@@ -39,14 +39,14 @@ const getAllDogsName = (callback, array) =>  {
     const dogs = callback(array)
     return dogs.map(dog => dog.name)
 }
-console.log(getAllDogsName(getAllDogs, animals))
-//
+//console.log(getAllDogsName(getAllDogs, animals))
+// Plusieurs fonction simple qui serviront de callback
 const sum = (param1, param2) => param1 + param2;
 const soustraction = (param1, param2) => param1 - param2;
 const multiply = (param1, param2) => param1 * param2;
 const division = (param1, param2) => param1 / param2;
-
-const calculator = (fonction, param1, param2) => fonction(param1, param2);
+// Fonction de haut niveau => avec callback
+const calculator = (callback, param1, param2) => callback(param1, param2);
 
 // console.log(calculator(sum, 2,3), "Resultat attendu 5");
 // console.log(calculator(multiply, 2,3), "Resultat attendu 6");
@@ -57,3 +57,63 @@ const calculator = (fonction, param1, param2) => fonction(param1, param2);
 const getAllCats = (array) => { /** */}
 // Ecrire une fonction qui prend en parametre "la précedente fonction" et un tableau et qui retourne un tableau
 // contenant tous les noms de cats
+const getAllCatsName = (callback, array) =>  {/** */}
+
+const movies = [
+    { title: "Forest Gump", duration: 140, year: 1994, category: "Drame"},
+    { title: "Mr Nobody", duration: 138, year: 2009, category: "Drame"},
+    { title: "Mademoiselle", duration: 184, year: 2016, category: "Romance"},
+    { title: "Le parrain", duration: 175, year: 1972, category: "Crime"},
+    { title: "Le roi lion", duration: 89, year: 1994, category: "Animé"},
+    { title: "The Dark Knight, Le Chevalier Noir", duration: 153, year: 2008, category: "Action"},
+    { title: "Pulp Fiction", duration: 159, year: 1994, category: "Action"},
+    { title: "Scarface", duration: 170, year: 1983, category: "Crime"},
+];
+
+// Ecrire une fonction qui prend en param un tableau et qui permette de savoir si tous les films ont une categorie | haveCategory
+
+// Ecrire un fonction qui prend en param un tableau de films et qui retourne uniquement les films de crime.| getCrimeMovie
+
+// Ecrire un fonction qui prend en param un tableau de films et qui retourne uniquement les films d'action.| getActionMovie
+
+// Ecrire un fonction qui prend en param un tableau de films et qui retourne uniquement les films d'avant 2000.| getOldMovie
+
+// Ecrire un fonction qui prend en param un tableau de films et qui retourne un nouveau tableau de leurs titres.| getMovieTitle 
+
+// Ecrire un fonction qui prend en param un tableau de films ainsi qu'une fonction (callbackCategorie) qui filtre les films par genre
+// et qui retourne leurs titres | getMovieTitleByCategorie
+
+// Test => retourner les titres des crimes movies | callback used : getCrimeMovie 
+// Test => retourner les titres des action movies | callback used : getActionMovie &
+// Test => retourner les titres des old movies | callback used : getOldMovie
+
+
+// Reecrire la meme fonction en ajoutant un 3eme parametres dit "callbackTitle"
+// getMovieTitleByCategorieBis 
+
+// Test => retourner les titres des crimes movies | callback used : getCrimeMovie & getMovieTitle
+// Test => retourner les titres des action movies | callback used : getActionMovie & getMovieTitle
+// Test => retourner les titres des old movies | callback used : getOldMovie & getMovieTitle
+
+
+// En reprenant la meme logique et les fonctions ecrites plus haut 
+// Ecrire une fonction qui permette de retourner les titres de films par genre uniquement si ils ont une categorie
+// Tips : use callback haveCategory | getMovieTitle 
+
+// Réecrire les fonctions suivante en ES6 
+function getAllTitle(array){
+    return array.map(item => item.title)
+}
+
+function filterYear(array){
+    return array.filter(item => item.year < 2000)
+}
+
+function getCalcul(callback, a, b){
+    return callback(a, b)
+}
+
+function getSomething(array, callback) {
+    const result = callback(array)
+    return result.every(item => item.title)
+}
